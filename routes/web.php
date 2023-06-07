@@ -18,35 +18,38 @@ use App\Models\User;
 Route::get('/', function () {
     //return view('welcome');
      
-foreach (User::all() as $user) {
-    echo $user->name;
-}
-$users = User::where('Avatar', 'NULL')
-               ->orderBy('name')
-               ->take(5)
-               ->get();
-//dd($users);
+// foreach (User::all() as $user) {
+//     echo $user->name;
+// }
+// $users = User::where('Avatar', '')
+//                ->orderBy('name')
+//                ->take(5)
+//                ->get();
+// dd($users);
     
     // dd($user);
+    // $user = User::All();
+    // dd($user);
+    $user=User::find(14);
+    dd($user);
 
 
 });
 
-//fetching all data using the Laravel Eloquent ORM
-    $user = User::All();
-    dd($user);
+// //fetching all data using the Laravel Eloquent ORM
 
-    //create user to the users table 
-    $user = User::create([
-        'name'=>'salihu omoricha',
-        'email'=>'omosali@gmail.com',
-        'password'=>'fadanafada',
-    ]);
-    // dd($user);
 
-    //find a user with specific id or email
-    $user = User::find(7);
-    // dd($user);
+//     //create user to the users table 
+//     $user = User::create([
+//         'name'=>'salihu omoricha',
+//         'email'=>'omosali@gmail.com',
+//         'password'=>'fadanafada',
+//     ]);
+//     // dd($user);
+
+//     //find a user with specific id or email
+//     $user = User::find(7);
+//     // dd($user);
 
 
 
