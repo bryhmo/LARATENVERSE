@@ -16,7 +16,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
+    return view('welcome');
      
 // foreach (User::all() as $user) {
 //     echo $user->name;
@@ -30,8 +30,8 @@ Route::get('/', function () {
     // dd($user);
     // $user = User::All();
     // dd($user);
-    $user=User::all();
-    dd($user);
+    // $user=User::all();
+    // dd($user);
 
 
 });
@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/profile/photo', [PhotoController::class, 'update'])->name('profile.photo');
 });
 
 require __DIR__.'/auth.php';
