@@ -8,11 +8,16 @@
             Add or Update User Photo
         </p>
     </header>
-    <form method="post" action="route('profile.photo')">
-    
-
+    @if (session('message'))
+      <div class="text-red-500">
+        {{ session('message') }}
+      </div>
+   @endif
+    <form method="post" action="{{route('profile.photo')}}" enctype="multipart/form-data">
+        @method('patch')
+        @csrf
         <div>
-            <x-input-label for="name" value="Profile Picture" />
+            <x-input-label for="photo" value="Photo" />
             <x-text-input id="photo" name="photo" type="file" class="mt-1 block w-full" :value="old('name', $user->photo)" required autofocus autocomplete="photo" />
             <x-input-error class="mt-2" :messages="$errors->get('photo')" />
         </div>
