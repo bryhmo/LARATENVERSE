@@ -30,7 +30,7 @@ Route::get('/', function () {
     // dd($user);
     // $user = User::All();
     // dd($user);
-    $user=User::find(14);
+    $user=User::all();
     dd($user);
 
 

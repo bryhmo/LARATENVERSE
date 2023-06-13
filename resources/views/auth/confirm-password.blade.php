@@ -24,7 +24,5 @@
             </x-primary-button>
         </div>
     </form>
-    Schema::table('users', function (Blueprint $table) {
-    $table->integer('votes');
-});
+  
 </x-guest-layout>

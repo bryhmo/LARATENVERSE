@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //this is the fuction to add Avatar field to the users table
-            $table->string('Avatar')->after('email')->nullable();
+            $table->string('photo')->after('email')->nullable();
+            //or
+            //$table->string('photo')->before('email')->nullable();
         });
     }
 
@@ -23,8 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //drop column
-            $table->dropColum('Avatar');
+            $table->dropColumn('photo');
         });
     }
 };
