@@ -9,14 +9,18 @@ class PhotoController extends Controller
 {
     public function update(UpdatePhotoRequest $request)
     {
-       
-        dd($request->all());
-        //dd($request->input('_token'));
-
-
         //store photo
-        return redirect(Route('profile.edit'));
-        //return back()->with(['message' => 'Profile picture changed successfully']);
+        //storing of the requested photo in the photos directory 
+        $path = $request->file('photo')->store('photos');
+
+        auth()->user()->update(['photo'=>storage_path('app')."/path"]);
+
+        return redirect(Route('profile.edit'))->with([
+            'message'=>'Profile picture changes succesfully'
+        ]);
+        
+        
     }
 }
+
 
