@@ -1,9 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            User Photo
+            Profile Photo
+            
         </h2>
-
+        
+       <img width="60" height="60" class="rounded-full" src="{{ "/storage/$user->photo" }}" alt="NoProfilePhoto">
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             Add or Update User Photo
         </p>
@@ -17,7 +19,7 @@
         @method('patch')
         @csrf
         <div>
-            <x-input-label for="photo" value="Photo" />
+            <x-input-label for="photo" value="Profile Picture" />
             <x-text-input id="photo" name="photo" type="file" class="mt-1 block w-full" :value="old('name', $user->photo)" required autofocus autocomplete="photo" />
             <x-input-error class="mt-2" :messages="$errors->get('photo')" />
         </div>
